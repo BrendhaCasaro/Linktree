@@ -17,7 +17,7 @@ users_data = [
 
 # Inserir os dados no banco de dados
 users_data.each do |user|
-  DB.execute(
+  USERS.execute(
     'INSERT INTO users (name, username, password) VALUES (?, ?, ?)',
     [user[:name], user[:username], user[:password]]
   )

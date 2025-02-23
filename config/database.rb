@@ -2,9 +2,13 @@
 
 require 'sqlite3'
 
-DB = SQLite3::Database.new('/home/brendha/linktree/linktree.db')
-DB.results_as_hash = true
+USERS = SQLite3::Database.new('/home/brendha/linktree/users.db')
+SL = SQLite3::Database.new('/home/brendha/linktree/social_links.db')
+USERS.results_as_hash = true
+SL.results_as_hash = true
 
-schema = File.read('/home/brendha/linktree/config/schema.sql')
+schema = File.read('/home/brendha/linktree/config/schema_users.sql')
+schema_SL = File.read('/home/brendha/linktree/config/schema_SL.sql')
 
-DB.execute schema
+USERS.execute schema
+SL.execute schema_SL
