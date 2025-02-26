@@ -2,10 +2,6 @@
 require_relative '../config/database'
 
 class User
-  def initialize
-    @@db = USERS
-  end
-
   def self.all
     USERS.execute('SELECT * FROM users WHERE deleted_at IS NULL')
   end
